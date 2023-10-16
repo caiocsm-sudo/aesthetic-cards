@@ -5,7 +5,7 @@ import Header from "./Header";
 const inter = Montserrat({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Hyperloggd Next",
+  title: "Aesthetic Cards",
   description: "A Next project for testing",
 };
 
