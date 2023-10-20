@@ -1,0 +1,26 @@
+.main {
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+.textContent {
+  text-align: start;
+}
+
+.parag {
+  font-weight: 300;
+  font-size: 0.90rem;
+  margin: 10px 0 0 0;
+}
+
+.presentation {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 3rem 0;
+}

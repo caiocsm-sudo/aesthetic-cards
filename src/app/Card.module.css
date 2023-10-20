@@ -1,0 +1,28 @@
+.cardContainer {
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(22, 22, 22, 0.568);
+  width: 15.50rem;
+  min-height: 13rem;
+}
+
+.image {
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  width: 100%;
+}
+
+.textContent {
+  padding: 1rem;
+  text-align: start;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 0 0 7px 0;
+}
+
+.content {
+  font-size: 0.85rem;
+  font-weight: 300;
+}

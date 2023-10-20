@@ -4,12 +4,15 @@ import { useForm } from "react-hook-form";
 import styles from "./page.module.css";
 import React, { useState } from "react";
 
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://127.0.0.1:8090');
+
 const pocketbaseApi = "http://127.0.0.1:8090/api/collections";
 
 export default function CreateCard() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [img, setImage] = useState();
 
   const { register, handleSubmit } = useForm();
 
@@ -19,15 +22,21 @@ export default function CreateCard() {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('content', content);
-    formData.append('media', image);
+    formData.append('image', image);
 
+    /*    
     const res = await fetch(`${pocketbaseApi}/aestheticCards/records`, {
       method: "POST",
       headers: {
-        'Content-type': "application/json;image"
+        'Content-type': "application/json"
       },
       body: JSON.stringify(formData),
     });
+    */
+    
+    const createdRecord = await pb.collection('aestheticCardse').create(JSON.stringify(newData));
+
+    console.log(createdRecord);
 
     setTitle("");
     setContent("");
@@ -70,7 +79,6 @@ export default function CreateCard() {
             {...register("image")}
             name="image"
             type="file"
-            onChange={(e) => setImage(e.target.value)}
           ></input>
         </div>
         <button className={styles.btn}>Submit</button>
