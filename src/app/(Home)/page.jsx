@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import Card from "./Card";
+import Card from "../Card";
 
 const defaultCard = {
   title: "My Card",
@@ -14,14 +14,14 @@ export default function Home() {
       <section className={styles.presentation}>
         <div className={styles.textContent}>
           <h2 className={styles.title}>
-            Login and start creating
+            Login and start
             <br />
-            your own cards
+            creating your own cards
           </h2>
           <p className={styles.parag}>
             The perfect application for you
             <br />
-            to create your own personalised cards
+            to create your own custom cards
           </p>
         </div>
         <Card

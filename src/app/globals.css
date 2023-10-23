@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&family=Pathway+Extreme:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700;8..144,800;8..144,900&display=swap');
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -5,12 +7,15 @@
     'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
+  --default-font: "Pathway Extreme", sans-serif;
+  --secondary-font: "Golos Text", sans-serif;
+
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
   --primary-background: #15006D;
-  --secondary-background: #8e5aff;
+  --secondary-background: #419b4d;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -47,6 +52,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: var(--secondary-font);
 }
 
 html,

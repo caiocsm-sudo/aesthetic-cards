@@ -3,38 +3,50 @@
 import { useForm } from "react-hook-form";
 import styles from "./page.module.css";
 import React, { useState } from "react";
+import axios from "axios";
+import Toasty from "./Toasty";
 
-import PocketBase from 'pocketbase';
+import PocketBase from "pocketbase";
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase("http://127.0.0.1:8090");
 
 const pocketbaseApi = "http://127.0.0.1:8090/api/collections";
 
 export default function CreateCard() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [open, setOpen] = useState(false);
 
   const { register, handleSubmit } = useForm();
 
   const handleSubmitForm = async function (data) {
     const image = data.image[0];
-    const newData = { title, content, image };
+
+    // const newData = { title, content, image };
+
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('content', content);
-    formData.append('image', image);
+    formData.append("title", title);
+    formData.append("content", content);
+    formData.append("field", image);
 
     /*    
     const res = await fetch(`${pocketbaseApi}/aestheticCards/records`, {
       method: "POST",
-      headers: {
-        'Content-type': "application/json"
-      },
       body: JSON.stringify(formData),
     });
+
+    const createdRecord = await pb.collection('aestheticCards').create(formData);
+
     */
-    
-    const createdRecord = await pb.collection('aestheticCardse').create(JSON.stringify(newData));
+
+    // axios
+    //   .post(`${pocketbaseApi}/porrona/records`, formData)
+    //   .then((res) => console.log(res, " te fode"))
+    //   .catch((err) => console.log("deu erro nessa porra, caralho " + err));
+
+    const createdRecord = await pb
+      .collection("aestheticCards")
+      .create(formData);
 
     console.log(createdRecord);
 
@@ -52,7 +64,10 @@ export default function CreateCard() {
           Type the title, content and select an image from your pc.
         </p>
       </div>
-      <form onSubmit={handleSubmit(handleSubmitForm)}>
+      <form
+        encType="multipart/form-data"
+        onSubmit={handleSubmit(handleSubmitForm)}
+      >
         <div>
           <label className={styles.label}>Title</label>
           <input
@@ -77,12 +92,14 @@ export default function CreateCard() {
           <label className={styles.label}>File</label>
           <input
             {...register("image")}
+            accept="image/*"
             name="image"
             type="file"
           ></input>
         </div>
         <button className={styles.btn}>Submit</button>
       </form>
+      <Toasty isOpen={open}/>
     </section>
   );
 }

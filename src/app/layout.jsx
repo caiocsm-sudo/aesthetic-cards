@@ -1,9 +1,10 @@
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Header from "./Header";
+import Header from "../partials/Header";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
+// can be used for any page
 export const metadata = {
   title: "Aesthetic Cards",
   description: "A Next project for testing",

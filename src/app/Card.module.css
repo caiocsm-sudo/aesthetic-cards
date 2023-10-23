@@ -3,11 +3,12 @@
   box-shadow: 0 0 10px rgba(22, 22, 22, 0.568);
   width: 15.50rem;
   min-height: 13rem;
+  border: 1px solid black;
 }
 
 .image {
-  border-top-right-radius: 7px;
-  border-top-left-radius: 7px;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
   width: 100%;
 }
 
